@@ -15,6 +15,7 @@ brew install gh
 
 git config --global user.name 'Adam Holt'
 git config --global user.email 'omgitsads@github.com'
+git config --global core.editor 'vim'
 git config --global alias.co 'checkout'
 git config --global alias.br 'branch'
 git config --global alias.ci 'commit'
