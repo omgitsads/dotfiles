@@ -11,6 +11,10 @@ echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/ins
 echo "eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" >> /workspace/.bash_profile
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+if [[ ! -z "$CODESPACES_TOKEN" ]] && [[ ! -z "$GITHUB_TOKEN" ]]; then
+    export GITHUB_TOKEN="$CODESPACES_TOKEN"
+fi
+
 brew install gh
 
 git config --global user.name 'Adam Holt'
