@@ -1,22 +1,5 @@
 #!/bin/bash
 
-# Copy dotfiles
-dotdir=$(cd $(dirname $0) && pwd)
-for filename in $(find $dotdir -name "*.symlink"); do
-  ln -sf $filename ~/.$(basename $filename | sed "s/\.symlink//")
-done
-
-# Install homebrew
-echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-echo "eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" >> /workspace/.bash_profile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-if [[ ! -z "$CODESPACES_TOKEN" ]] && [[ ! -z "$GITHUB_TOKEN" ]]; then
-    export GITHUB_TOKEN="$CODESPACES_TOKEN"
-fi
-
-brew install gh
-
 git config --global user.name 'Adam Holt'
 git config --global user.email 'omgitsads@github.com'
 git config --global core.editor 'vim'
