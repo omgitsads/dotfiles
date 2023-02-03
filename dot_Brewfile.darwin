@@ -15,7 +15,6 @@ cask "hammerspoon"
 brew "git"
 brew "zsh"
 brew "rbenv"
-brew "gnu-sed"
 
 brew "gh"
 brew "go"
