@@ -30,3 +30,4 @@ export PATH="/usr/local/opt/go@1/bin:$PATH"
 export GPG_TTY=$(tty)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /Users/omgitsads/.config/op/plugins.sh
