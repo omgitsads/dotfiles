@@ -1,0 +1,95 @@
+format = """
+[](#5E81AC)\
+$username\
+[](bg:#BF616A fg:#5E81AC)\
+$directory\
+[](fg:#BF616A bg:#D08770)\
+$git_branch\
+$git_status\
+[](fg:#D08770 bg:#B48EAD)\
+$ruby\
+$golang\
+$rust\
+$elixir\
+$nodejs\
+[](fg:#B48EAD bg:#A3BE8C)\
+$docker_context\
+[](fg:#A3BE8C bg:#4C566A)\
+$time\
+[ ](fg:#4C566A)\
+$character
+"""
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# You can also replace your username with a neat symbol like  to save some space
+[username]
+show_always = true
+style_user = "bg:#5E81AC"
+style_root = "bg:#5E81AC"
+format = '[ $user ]($style)'
+
+[directory]
+style = "bg:#BF616A"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[git_branch]
+symbol = ""
+style = "bg:#D08770"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#D08770"
+format = '[$all_status$ahead_behind ]($style)'
+
+[elixir]
+symbol = ""
+style = "bg:#B48EAD"
+format = '[ $symbol ($version) ]($style)'
+
+[ruby]
+symbol = ""
+style = "bg:#B48EAD"
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#B48EAD"
+format = '[ $symbol ($version) ](bg:#B48EAD)'
+
+[rust]
+symbol = ""
+style = "bg:#B48EAD"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#B48EAD"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:#A3BE8C"
+format = '[ $symbol $context ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#4C566A"
+format = '[ ♥ $time ]($style)'
