@@ -1,5 +1,6 @@
 #!/bin/bash
 
+code --install-extension arcticicestudio.nord-visual-studio-code
 code --install-extension bungcip.better-toml
 code --install-extension esbenp.prettier-vscode
 code --install-extension GitHub.copilot
