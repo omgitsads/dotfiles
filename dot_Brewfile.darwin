@@ -1,17 +1,15 @@
-tap "homebrew/cask-fonts"
-
 cask "google-chrome"
 cask "visual-studio-code"
-cask "alfred"
-cask "hammerspoon"
-cask "1password"
+cask "raycast"
 cask "1password-cli"
 cask "font-fira-code-nerd-font"
 cask "docker"
+cask "hiddenbar"
 
-cask "visual-studio-code"
-cask "alfred"
-cask "hammerspoon"
+cask "elgato-camera-hub"
+cask "elgato-control-center"
+cask "elgato-stream-deck"
+cask "elgato-wave-link"
 
 brew "git"
 brew "zsh"
