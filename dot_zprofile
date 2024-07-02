@@ -1,8 +1,12 @@
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 # 1password Socket
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 alias vim="nvim"
 alias vi="nvim"
+
+export PATH="$HOME/bin:$PATH"
+export OP_ACCOUNT="my.1password.com"
+
