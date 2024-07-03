@@ -72,7 +72,7 @@ endfunction
 
 filetype on
 syntax on
-colorscheme nord
+silent! colorscheme nord
 set guifont=FiraCode\ Nerd\ Font:h12
 set guioptions=
 

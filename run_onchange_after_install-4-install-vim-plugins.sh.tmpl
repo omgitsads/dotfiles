@@ -2,5 +2,10 @@
 
 # Vimrc hash: {{ include "dot_vimrc" | sha256sum }}
 
+# Create temp dirs
+mkdir -p ~/.vim/.undo
+mkdir -p ~/.vim/.backup
+mkdir -p ~/.vim/.swp
+
 # Install vim plugins
 vim -c 'PlugInstall' -c 'qa'
