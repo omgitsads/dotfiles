@@ -1,0 +1,45 @@
+# Install ZInit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+# ZInit configuration
+
+zinit load zdharma-continuum/history-search-multi-word
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Rbenv
+eval "$(rbenv init -)"
+{{- end }}
+
+# Starship
+eval "$(starship init zsh)"
+
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="${HOME}/go/bin:$PATH"
+export PATH="/usr/local/opt/go@1/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+export GPG_TTY=$(tty)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+{{ if eq .chezmoi.os "darwin" -}}
+source /Users/omgitsads/.config/op/plugins.sh
+{{- end }}
+
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
