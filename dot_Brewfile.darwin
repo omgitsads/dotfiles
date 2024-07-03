@@ -14,6 +14,7 @@ cask "elgato-wave-link"
 brew "git"
 brew "zsh"
 brew "rbenv"
+brew "zoxide"
 
 brew "gh"
 brew "go"
