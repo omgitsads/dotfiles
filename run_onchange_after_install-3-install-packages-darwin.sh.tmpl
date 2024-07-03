@@ -1,0 +1,10 @@
+#!/bin/bash
+{{- if eq .chezmoi.os "darwin" -}}
+if ! command -v brew &> /dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  /bin/brew shellenv
+fi
+
+# .Brewfile.darwin hash: {{ include "dot_Brewfile.darwin" | sha256sum }}
+brew bundle install --no-lock --file "$HOME/.Brewfile.darwin"
+{{ end -}}
