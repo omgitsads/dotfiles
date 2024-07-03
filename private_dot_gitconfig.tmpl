@@ -1,7 +1,6 @@
+{{ if eq .chezmoi.os "darwin" -}}
 [gpg]
 	format = ssh
-
-{{ if eq .chezmoi.os "darwin" -}}
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
@@ -14,7 +13,9 @@
 [user]
 	email = "{{ .email }}"
 	name = "{{ .name }}"
+{{ if eq .chezmoi.os "darwin" -}}
 	signingkey = "{{ .signingkey }}"
+{{- end }}
 
 [include]
 	path = ~/.config/git/commands.inc
