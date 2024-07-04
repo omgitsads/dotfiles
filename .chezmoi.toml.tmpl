@@ -1,10 +1,11 @@
 {{- $codespaces:= env "CODESPACES" | not | not -}}
 
 [data]
-	email = "me@adamholt.co.uk"
-	name = "Adam Holt"
-	codespaces = {{ $codespaces }}
-{{- if eq .chezmoi.os "darwin" -}}
-	signingkey = "{{ onepasswordRead "op://Personal/Mac Mini SSH Key/public_key" }}"
-	githubToken = "{{ onepasswordRead "op://Private/kh265teuqzqtihtpq7sgxwilcm/token" }}"
-{{- end -}}
+  email = "me@adamholt.co.uk"
+  name = "Adam Holt"
+  codespaces = {{ $codespaces }}
+{{- if eq .chezmoi.os "darwin" }}
+  signingkey = "{{ onepasswordRead "op://Personal/Mac Mini SSH Key/public_key" }}"
+  githubToken = "{{ onepasswordRead "op://Private/kh265teuqzqtihtpq7sgxwilcm/token" }}"
+{{ end -}}
+

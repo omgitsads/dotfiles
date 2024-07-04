@@ -1,5 +1,5 @@
-#!/bin/bash
-{{- if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+{{ if eq .chezmoi.os "darwin" -}}
 code --install-extension arcticicestudio.nord-visual-studio-code
 code --install-extension bungcip.better-toml
 code --install-extension esbenp.prettier-vscode
