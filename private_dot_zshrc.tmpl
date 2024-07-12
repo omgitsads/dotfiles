@@ -21,6 +21,11 @@ zinit pack for fzf
 {{ if eq .chezmoi.os "darwin" -}}
 # Rbenv
 eval "$(rbenv init -)"
+
+# 1password Socket
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+# Logging into 1password
+export OP_ACCOUNT="my.1password.com"
 {{- end }}
 
 eval "$(zoxide init zsh)"

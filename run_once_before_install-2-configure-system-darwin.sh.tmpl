@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 {{ if (eq .chezmoi.os "darwin") -}}
 
 osascript -e 'tell application "System Preferences" to quit'
@@ -9,7 +9,7 @@ osascript -e 'tell application "System Preferences" to quit'
 # Set default screenshot location
 defaults write com.apple.screencapture "location" -string "~/Documents/Screenshots" && killall SystemUIServer
 # Do not autogather large files when submitting a feedback report
-defaults write com.apple.appleseed.FeedbackAssistant "Autogather" -bool "false" 
+defaults write com.apple.appleseed.FeedbackAssistant "Autogather" -bool "false"
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Security settings

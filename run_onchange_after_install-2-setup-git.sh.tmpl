@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+{{ if eq .chezmoi.os "darwin" -}}
+git config --global	gpg.format.ssh.program /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+git config --global commit.gpgsign true
+{{- end }}
+
+git config --global core.editor vim
+git config --global user.email "{{ .email }}"
+git config --global user.email "{{ .name }}"
+
+{{ if eq .chezmoi.os "darwin" -}}
+git config --global user.signingkey "{{ .signingkey }}"
+{{- end }}
+
+git config --global include.path ~/.config/git/commands.inc
