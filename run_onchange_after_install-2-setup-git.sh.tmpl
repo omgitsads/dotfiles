@@ -4,6 +4,7 @@ git config --global	gpg.format.ssh.program /Applications/1Password.app/Contents/
 git config --global commit.gpgsign true
 {{- end }}
 
+git config --global pull.rebase false
 git config --global core.editor vim
 git config --global user.email "{{ .email }}"
 git config --global user.email "{{ .name }}"
