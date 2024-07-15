@@ -12,6 +12,8 @@ cask "elgato-control-center"
 cask "elgato-stream-deck"
 cask "elgato-wave-link"
 
+cask "alacritty"
+
 brew "git"
 brew "zsh"
 brew "rbenv"
@@ -28,4 +30,3 @@ brew "eza"
 brew "bat"
 brew "rg"
 brew "lazygit"
-brew "alacritty"
