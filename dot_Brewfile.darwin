@@ -25,4 +25,6 @@ brew "protobuf"
 brew "fzf"
 brew "eza"
 brew "bat"
-
+brew "rg"
+brew "lazygit"
+brew "alacritty"
