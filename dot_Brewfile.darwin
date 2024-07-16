@@ -6,6 +6,7 @@ cask "font-fira-code-nerd-font"
 cask "docker"
 cask "hiddenbar"
 cask "betterdisplay"
+cask "tuple"
 
 cask "elgato-camera-hub"
 cask "elgato-control-center"
