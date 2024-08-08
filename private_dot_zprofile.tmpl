@@ -1,6 +1,10 @@
 {{ if eq .chezmoi.os "darwin" -}}
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/usr/local/bin/brew shellenv)"
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 eval "$(op signin)"
 export GITHUB_TOKEN="{{ .githubToken }}"
