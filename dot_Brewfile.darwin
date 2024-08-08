@@ -11,9 +11,10 @@ cask "tuple"
 cask "elgato-camera-hub"
 cask "elgato-control-center"
 cask "elgato-stream-deck"
-cask "elgato-wave-link"
 
 cask "wezterm"
+
+cask "orbstack"
 
 brew "git"
 brew "zsh"
