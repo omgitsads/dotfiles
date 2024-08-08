@@ -13,7 +13,7 @@ cask "elgato-control-center"
 cask "elgato-stream-deck"
 cask "elgato-wave-link"
 
-cask "alacritty"
+cask "wezterm"
 
 brew "git"
 brew "zsh"
