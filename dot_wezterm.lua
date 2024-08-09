@@ -16,9 +16,8 @@ c.inactive_pane_hsb = {
 	brightness = 0.8,
 }
 
-c.leader = { key = "a", mods = "CTRL" }
+c.leader = { key = "b", mods = "CTRL" }
 c.keys = {
-	{ key = "a", mods = "LEADER|CTRL", action = wezterm.action({ SendString = "\x01" }) },
 	{
 		key = "-",
 		mods = "LEADER",
