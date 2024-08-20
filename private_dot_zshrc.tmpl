@@ -42,6 +42,9 @@ export PATH="${HOME}/go/bin:$PATH"
 export PATH="/usr/local/opt/go@1/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+{{ if .codespaces -}}
+export PATH="/workspaces/.local/bin:$PATH"
+{{ end -}}
 
 export GPG_TTY=$(tty)
 
