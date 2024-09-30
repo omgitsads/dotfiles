@@ -2,14 +2,17 @@ local wezterm = require("wezterm")
 
 local c = wezterm.config_builder()
 
-c.font = wezterm.font("FiraCode Nerd Font Mono")
+c.font = wezterm.font({
+	family = "MonoLisa",
+	harfbuzz_features = { "zero", "ss04", "ss07", "ss08", "ss09" },
+})
 c.font_size = 16
 
 c.window_decorations = "RESIZE"
 
 c.color_scheme = "catppuccin-frappe"
 c.window_background_opacity = 0.9
-c.macos_window_background_blur = 100
+c.macos_window_background_blur = 50
 
 c.inactive_pane_hsb = {
 	saturation = 0.9,
@@ -74,7 +77,48 @@ c.keys = {
 	{ key = "x", mods = "LEADER", action = wezterm.action({ CloseCurrentPane = { confirm = true } }) },
 }
 
-local bar = wezterm.plugin.require("https://github.com/adriankarlen/bar.wezterm")
-bar.apply_to_config(c)
+c.tab_bar_at_bottom = true
+
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup({
+  options = {
+    icons_enabled = true,
+    theme = 'Catppuccin Frappe',
+    color_overrides = {},
+    padding = 1,
+    section_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = wezterm.nerdfonts.pl_right_hard_divider,
+    },
+    component_separators = {
+      left = wezterm.nerdfonts.pl_left_soft_divider,
+      right = wezterm.nerdfonts.pl_right_soft_divider,
+    },
+    tab_separators = {
+      left = wezterm.nerdfonts.pl_left_hard_divider,
+      right = wezterm.nerdfonts.pl_right_hard_divider,
+    },
+  },
+  sections = {
+    tabline_a = { 'mode' },
+    tabline_b = { 'workspace' },
+    tabline_c = { ' ' },
+    tab_active = {
+      'index',
+      { 'parent', padding = 0 },
+      '/',
+      { 'cwd', padding = { left = 0, right = 1 } },
+      { 'zoomed', padding = 0 },
+    },
+    tab_inactive = { 'index', { 'process', padding = { left = 0, right = 1 } } },
+    tabline_x = { 'ram', 'cpu' },
+    tabline_y = { 'datetime', 'battery' },
+    tabline_z = { 'hostname' },
+  },
+  extensions = {},
+})
+tabline.apply_to_config(c)
+
+c.hyperlink_rules = wezterm.default_hyperlink_rules()
 
 return c
