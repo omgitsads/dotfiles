@@ -7,4 +7,5 @@ fi
 
 # .Brewfile.darwin hash: {{ include "dot_Brewfile.darwin" | sha256sum }}
 brew bundle install --file "$HOME/.Brewfile.darwin"
+bat cache --build
 {{ end -}}
