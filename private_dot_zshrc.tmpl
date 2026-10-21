@@ -16,11 +16,25 @@ zi for \
     wait \
   zsh-users/zsh-completions
 
-zinit pack for fzf
-
 {{ if eq .chezmoi.os "darwin" -}}
 # Rbenv
-eval "$(rbenv init -)"
+_rbenv_bin="${HOMEBREW_PREFIX:-/opt/homebrew}/bin/rbenv"
+_rbenv_cache="${XDG_CACHE_HOME:-$HOME/.cache}/rbenv/init.zsh"
+
+if [[ ! -s "$_rbenv_cache" || "$_rbenv_bin" -nt "$_rbenv_cache" ]]; then
+  mkdir -p "${_rbenv_cache:h}"
+
+  _rbenv_cache_tmp="${_rbenv_cache}.$$"
+  if "$_rbenv_bin" init - --no-rehash zsh >| "$_rbenv_cache_tmp"; then
+    command mv -f "$_rbenv_cache_tmp" "$_rbenv_cache"
+  else
+    command rm -f "$_rbenv_cache_tmp"
+  fi
+  unset _rbenv_cache_tmp
+fi
+
+[[ -r "$_rbenv_cache" ]] && source "$_rbenv_cache"
+unset _rbenv_bin _rbenv_cache
 
 # 1password Socket
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
@@ -34,6 +48,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 {{ if .codespaces -}}
 export PATH="/workspaces/.local/bin:~/.local/bin:$PATH"
 {{ end -}}
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Autoenv loads first so its initial scan does not trigger zoxide hooks.
+source /opt/homebrew/opt/autoenv/activate.sh
+{{- end }}
 
 eval "$(zoxide init zsh)"
 

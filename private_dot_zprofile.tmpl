@@ -12,4 +12,19 @@ export GITHUB_TOKEN="{{ .githubToken }}"
 # Added by OrbStack: command-line tools and integration
 # Comment this line if you don't want it to be added again.
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+
+# NVM: keep Node available without resolving the default version at startup.
+export NVM_DIR="$HOME/.nvm"
+export NVM_SYMLINK_CURRENT=true
+export PATH="$NVM_DIR/current/bin:$PATH"
+nvm() {
+  local nvm_script="/opt/homebrew/opt/nvm/nvm.sh"
+  if [[ ! -s "$nvm_script" ]]; then
+    print -u2 "nvm: $nvm_script not found"
+    return 127
+  fi
+  unfunction nvm
+  \. "$nvm_script" --no-use
+  nvm "$@"
+}
 {{- end }}
